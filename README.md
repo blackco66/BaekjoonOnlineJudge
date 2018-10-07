@@ -1,5 +1,5 @@
-# BaekjunOnlineJudge
-BaekjunOnlineJudge
+# BaekjoonOnlineJudge
+BaekjoonOnlineJudge
 
 
 https://www.acmicpc.net
