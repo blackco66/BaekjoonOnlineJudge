@@ -15,7 +15,43 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="2439.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2440.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2441.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1924.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="8393.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="11720.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="11721.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="15552.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="4344.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1011.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1152.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6024.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
