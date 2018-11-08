@@ -51,7 +51,13 @@
     <ClCompile Include="6024.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="2750-unsolved.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1275.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2042.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
