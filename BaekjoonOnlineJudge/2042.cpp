@@ -2,8 +2,17 @@
 #include<iostream>
 long long a[1000000];
 long long tree[2000000];
-
-long long Init(int treeIndex, int begin, int end)
+class SegmentTree
+{
+public://methods
+	long long Init(int treeIndex, int begin, int end);
+	long long GetSum(int begin, int end);
+private://methods
+private://member variables
+	long long a[1000000];
+	long long tree[200000];
+};
+long long SegmentTree::Init(int treeIndex, int begin, int end)
 {
 	if (begin > end)
 	{
@@ -22,7 +31,7 @@ long long Init(int treeIndex, int begin, int end)
 	}
 }
 
-long long GetSum(int begin, int end)
+long long SegmentTree::GetSum(int begin, int end)
 {
 
 }
