@@ -2,10 +2,13 @@
 #include<iostream>
 #include<math.h>
 using namespace std;
+
 int main() {
 	int t; cin >> t;
-	for (int tc = 0; tc < t; tc++) {
-		int a, b; cin >> a >> b;
+	for (int tc = 0; tc < t; tc++) 
+	{
+		int a, b; 
+		cin >> a >> b;
 		int diff = b - a;
 		int sq = sqrt(diff);
 		int mid = sq * (sq + 1);

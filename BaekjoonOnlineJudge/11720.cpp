@@ -1,12 +1,15 @@
 ///#11720
 #include<iostream>
 using namespace std;
-int main() {
+
+int main() 
+{
 	int n; cin >> n;
 	int ans = 0;
 	char temp1;
 	scanf("%c", &temp1);
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++)
+	{
 		char temp;
 		scanf("%c", &temp);
 		ans += (temp-'0');
