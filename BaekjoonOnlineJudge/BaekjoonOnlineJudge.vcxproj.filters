@@ -78,13 +78,25 @@
     <ClCompile Include="1010.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="1015.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="1463.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="1676.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1015-solveThis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CF1091A.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CF1091B.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CF1091C.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CF1091D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
