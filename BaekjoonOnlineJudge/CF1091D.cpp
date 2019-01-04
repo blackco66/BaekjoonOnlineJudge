@@ -18,7 +18,7 @@ int main()
 		np2 = np2 * i % 998244353;
 		nu = (nu + np2) % 998244353;
 	}
-	ans = (ans - nu) % 998244353;
+	ans = (ans - nu + 998244353) % 998244353;
 	cout << ans;
 	return 0;
 }
