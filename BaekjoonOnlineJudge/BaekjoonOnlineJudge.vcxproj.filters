@@ -15,88 +15,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2439.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="2440.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="2441.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1924.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="8393.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="11720.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="11721.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="15552.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="4344.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1011.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1152.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="6024.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="2750-unsolved.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1275.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="2042.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1978.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1929.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="9020.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="10828.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="1005-unsolved.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="1010.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1463.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1676.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="1015-solveThis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CF1091A.cpp">
+    <ClCompile Include="1765.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CF1091B.cpp">
+    <ClCompile Include="9205.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CF1091C.cpp">
+    <ClCompile Include="11559.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CF1091D.cpp">
+    <ClCompile Include="3935.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1420.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="7596-unsolved.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sam8016.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sam7728.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3154.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
