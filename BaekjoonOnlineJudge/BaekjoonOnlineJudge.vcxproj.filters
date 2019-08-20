@@ -24,31 +24,25 @@
     <ClCompile Include="1015-solveThis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="1765.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="9205.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="11559.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="3935.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="1420.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="7596-unsolved.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sam8016.cpp">
+    <ClCompile Include="3055-unsolved.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sam7728.cpp">
+    <ClCompile Include="9376.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="3154.cpp">
+    <ClCompile Include="1756.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="17281-unsolved.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6593.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="basecode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
