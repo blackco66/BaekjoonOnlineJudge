@@ -66,5 +66,8 @@
     <ClCompile Include="16929.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="kakao2020.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

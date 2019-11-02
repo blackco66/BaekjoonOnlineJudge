@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -44,7 +45,6 @@ int solution1(string s) {
     }
     return answer;
 }
-
 bool check2(string p) {
     int cnt = 0;
     int plen = p.size();
@@ -97,7 +97,6 @@ string solution2(string p) {
 
     return answer;
 }
-
 bool check3(vector<vector<int>> key, vector<vector<int>> lock, int r, int c) {
     int N = lock.size();
     int M = key.size();
@@ -300,8 +299,141 @@ vector<vector<int>> solution5(int n, vector<vector<int>> build_frame) {
     }
     return answer;
 }
+struct current6{
+    bool HV;  //false:horizontal, true:vertical
+    int X; 
+    int Y;
+    int moves;
+    current6(bool a, int b, int c, int d) : HV(a), X(b), Y(c), moves(d) {}
+};
+bool finish6(current6 curr, int n){
+    if(!curr.HV && curr.X == n - 2 && curr.Y == n - 1) return true;
+    if(curr.HV && curr.X == n - 1 && curr.Y == n - 2) return true;
+    return false;
+}
+int solution6(vector<vector<int>> board) {
+    int answer = 0;
+    int n = board.size();
+    vector<vector<bool>> horizontal(n-1, vector<bool>(n, false));
+    vector<vector<bool>> vertical(n, vector<bool>(n-1, false));
+    current6 start(false, 0, 0, 0);
+    queue<current6> q;
+    q.push(start);
+	horizontal[start.X][start.Y] = true;
+    while(!q.empty()){
+        current6 curr = q.front();
+        q.pop();
+        if(finish6(curr, n)){
+            answer = curr.moves;
+            break;
+        }
+        if(!curr.HV){
+            if(curr.X < n - 2 && !horizontal[curr.X + 1][curr.Y] && board[curr.Y][curr.X + 2] == 0){
+                current6 next(false, curr.X + 1, curr.Y, curr.moves + 1);
+                q.push(next);
+				horizontal[next.X][next.Y] = true;
+            }
+            if(curr.X > 0 && !horizontal[curr.X - 1][curr.Y] && board[curr.Y][curr.X - 1] == 0){
+                current6 next(false, curr.X - 1, curr.Y, curr.moves + 1);
+                q.push(next);
+				horizontal[next.X][next.Y] = true;
+            }
+            if(curr.Y < n - 1 && board[curr.Y + 1][curr.X] == 0 && board[curr.Y + 1][curr.X + 1] == 0){
+                if(!horizontal[curr.X][curr.Y + 1]){
+                    current6 next(false, curr.X, curr.Y + 1, curr.moves + 1);
+                    q.push(next);
+					horizontal[next.X][next.Y] = true;
+                }
+                if(!vertical[curr.X][curr.Y]){
+                    current6 next(true, curr.X, curr.Y, curr.moves + 1);
+                    q.push(next);
+					vertical[next.X][next.Y] = true;
+                }
+                if(!vertical[curr.X + 1][curr.Y]){
+                    current6 next(true, curr.X + 1, curr.Y, curr.moves + 1);
+                    q.push(next);
+					vertical[next.X][next.Y] = true;
+                }
+            }
+            if(curr.Y > 0 && board[curr.Y - 1][curr.X] == 0 && board[curr.Y - 1][curr.X + 1] == 0){
+                if(!horizontal[curr.X][curr.Y - 1]){
+                    current6 next(false, curr.X, curr.Y - 1, curr.moves + 1);
+                    q.push(next);
+					horizontal[next.X][next.Y] = true;
+                }
+                if(!vertical[curr.X][curr.Y - 1]){
+                    current6 next(true, curr.X, curr.Y - 1, curr.moves + 1);
+                    q.push(next);
+					vertical[next.X][next.Y] = true;
+                }
+                if(!vertical[curr.X + 1][curr.Y - 1]){
+                    current6 next(true, curr.X + 1, curr.Y - 1, curr.moves + 1);
+                    q.push(next);
+					vertical[next.X][next.Y] = true;
+                }
+            }
+        }
+        if(curr.HV){
+            if(curr.Y < n - 2 && !vertical[curr.X][curr.Y + 1] && board[curr.Y + 2][curr.X] == 0){
+                current6 next(true, curr.X, curr.Y + 1, curr.moves + 1);
+                q.push(next);
+				vertical[next.X][next.Y] = true;
+            }
+            if(curr.Y > 0 && !vertical[curr.X][curr.Y - 1] && board[curr.Y - 1][curr.X] == 0){
+                current6 next(true, curr.X, curr.Y - 1, curr.moves + 1);
+                q.push(next);
+				vertical[next.X][next.Y] = true;
+            }
+            if(curr.X < n - 1 && board[curr.Y][curr.X + 1] == 0 && board[curr.Y + 1][curr.X + 1] == 0){
+                if(!vertical[curr.X + 1][curr.Y]){
+                    current6 next(true, curr.X + 1, curr.Y, curr.moves + 1);
+                    q.push(next);
+					vertical[next.X][next.Y] = true;
+                }
+                if(!horizontal[curr.X][curr.Y]){
+                    current6 next(false, curr.X, curr.Y, curr.moves + 1);
+                    q.push(next);
+					horizontal[next.X][next.Y] = true;
+                }
+                if(!horizontal[curr.X][curr.Y + 1]){
+                    current6 next(false, curr.X, curr.Y + 1, curr.moves + 1);
+                    q.push(next);
+					horizontal[next.X][next.Y] = true;
+                }
+            }
+            if(curr.X > 0 && board[curr.Y][curr.X - 1] == 0 && board[curr.Y + 1][curr.X - 1] == 0){
+                if(!vertical[curr.X - 1][curr.Y]){
+                    current6 next(true, curr.X - 1, curr.Y, curr.moves + 1);
+                    q.push(next);
+					vertical[next.X][next.Y] = true;
+                }
+                if(!horizontal[curr.X - 1][curr.Y]){
+                    current6 next(false, curr.X - 1, curr.Y, curr.moves + 1);
+                    q.push(next);
+					horizontal[next.X][next.Y] = true;
+                }
+                if(!horizontal[curr.X - 1][curr.Y + 1]){
+                    current6 next(false, curr.X - 1, curr.Y + 1, curr.moves + 1);
+                    q.push(next);
+					horizontal[next.X][next.Y] = true;
+                }
+            }
+        }
+    }
+    return answer;
+}
 int main() {
-    string s = "()))((()";
-    vector<bool> n(1);
-    cout << n[0];
+    vector<int> tmp1{0,0,0,1,1};
+    vector<int> tmp2{0,0,0,1,0};
+    vector<int> tmp3{0,1,0,1,1};
+    vector<int> tmp4{1,1,0,0,1};
+    vector<int> tmp5{0,0,0,0,0};
+    vector<vector<int>> input;
+    input.push_back(tmp1);
+    input.push_back(tmp2);
+    input.push_back(tmp3);
+    input.push_back(tmp4);
+    input.push_back(tmp5);
+
+    cout << solution(input);
 }
