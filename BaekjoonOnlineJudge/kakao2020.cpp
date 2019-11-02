@@ -218,7 +218,7 @@ vector<int> solution4(vector<string> words, vector<string> queries) {
     }
     return answer;
 }
-vector<vector<int>> solution(int n, vector<vector<int>> build_frame) {
+vector<vector<int>> solution5(int n, vector<vector<int>> build_frame) {
     vector<vector<int>> answer;
     vector<vector<int>> state(n + 1, vector<int>(n + 1, 0));  //1:기둥, 2: 보, 3: 동시
     int num = build_frame.size();
@@ -226,15 +226,15 @@ vector<vector<int>> solution(int n, vector<vector<int>> build_frame) {
         vector<int> tmp = build_frame[i];
         int x = tmp[0];
         int y = tmp[1];
-        int a = tmp[2];
-        int b = tmp[3];
+        int a = tmp[2]; //0은 기둥, 1은 보
+        int b = tmp[3]; //0은 삭제, 1은 설치
         if (a == 0 && b == 0) {
             bool flag = true;
-            if (y < n - 1 && state[x][y + 1] % 2 == 1 && !((x > 0 && state[x - 1][y + 1] > 1) || (x < n - 1 && state[x][y + 1] > 2))) {
+            if (y < n && state[x][y + 1] % 2 == 1 && !((x > 0 && state[x - 1][y + 1] > 1) || (x < n - 1 && state[x][y + 1] > 1))) {
                 flag = false;
-            } else if (x > 0 && state[x - 1][y + 1] > 1 && !(state[x - 1][y] % 2 == 1 || (x > 1 && state[x - 2][y + 1] > 1))) {
+            } else if (x > 0 && state[x - 1][y + 1] > 1 && !(state[x - 1][y] % 2 == 1 || (x > 1 && y < n && state[x - 2][y + 1] > 1 && state[x][y + 1] > 1))) {
                 flag = false;
-            } else if (x < n - 1 && state[x][y + 1] > 1 && !(state[x + 1][y] % 2 == 1 || state[x + 1][y + 1] > 1)) {
+            } else if (x < n && y < n && state[x][y + 1] > 1 && !(state[x + 1][y] % 2 == 1 || (x > 0 && state[x - 1][y + 1] > 1 && state[x + 1][y + 1] > 1))) {
                 flag = false;
             }
             if (flag) {
@@ -256,13 +256,13 @@ vector<vector<int>> solution(int n, vector<vector<int>> build_frame) {
             }
         } else if (a == 1 && b == 0) {
             bool flag = true;
-            if (y < n - 1 && state[x][y] % 2 == 1 && !((x > 0 && state[x - 1][y] > 1) || (y > 0 && state[x][y - 1] % 2 == 1))) {
+            if (y < n && state[x][y] % 2 == 1 && !((x > 0 && state[x - 1][y] > 1) || (y > 0 && state[x][y - 1] % 2 == 1))) {
                 flag = false;
-            } else if (y < n - 1 && x < n - 1 && state[x + 1][y] % 2 == 1 && !((state[x][y] > 1) || (x < n && y > 0 && state[x + 1][y - 1] % 2 == 1))) {
+            } else if (y < n && x < n && state[x + 1][y] % 2 == 1 && !((state[x + 1][y] > 1) || (x < n && y > 0 && state[x + 1][y - 1] % 2 == 1))) {
                 flag = false;
             } else if (x > 0 && state[x - 1][y] > 1 && !((y > 0 && state[x][y - 1] % 2 == 1) || (y > 0 && state[x - 1][y - 1] % 2 == 1))) {
                 flag = false;
-            } else if (x < n - 1 && state[x + 1][y] > 1 && !(y > 0 && state[x + 1][y - 1] % 2 == 1 || y > 0 && state[x + 2][y - 1] % 2 == 1)) {
+            } else if (x < n - 1 && state[x + 1][y] > 1 && !((y > 0 && state[x + 1][y - 1] % 2 == 1) || (x < n - 1 && y > 0 && state[x + 2][y - 1] % 2 == 1))) {
                 flag = false;
             }
             if (flag) {
