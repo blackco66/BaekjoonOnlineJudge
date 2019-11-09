@@ -165,7 +165,7 @@ int sol5(vector<int> stones, int k, int n, int maximum) {
     }
     return sol5(stones, k, minmin, maximum);
 }
-int solution(vector<int> stones, int k) {
+int solution5(vector<int> stones, int k) {
     int answer = 0;
     int minimum = 2147483647;
     int maximum = 0;
