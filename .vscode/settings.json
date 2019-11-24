@@ -43,6 +43,16 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "list": "cpp",
+        "random": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "ratio": "cpp",
+        "chrono": "cpp"
     }
 }

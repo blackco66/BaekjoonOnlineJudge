@@ -51,9 +51,6 @@
     <ClCompile Include="16236.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sam5656.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -66,7 +63,13 @@
     <ClCompile Include="16929.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="kakaointern2020.cpp">
+    <ClCompile Include="sam5653.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kakaointern_pb1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

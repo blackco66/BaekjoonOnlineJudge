@@ -1,118 +1,71 @@
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
+int N, W, H;
+vector<int> sim(vector<int> input, int col) {
+	int top = col;
+	while (top < W * H && input[top] == 0) {
+		top += W;
+	}
+	if (top >= W * H)return input;
+	queue<int> q;
+	q.push(top);
+	while (!q.empty()) {
+		int tmp = q.front();
+		q.pop();
+		int val = input[tmp];
+		input[tmp] = 0;
+		for (int i = 1; i < val; i++) {
+			if (tmp - i >= (tmp / W * W) && input[tmp - i] != 0)q.push(tmp - i);
+			if (tmp + i < (tmp / W * W + W) && input[tmp + i] != 0)q.push(tmp + i);
+			if (tmp - W * i >= 0 && input[tmp - W * i] != 0)q.push(tmp - W * i);
+			if (tmp + W * i < W * H && input[tmp + W * i] != 0)q.push(tmp + W * i);
+		}
+	}
+	vector<int> out(W * H, 0);
+	for (int i = 0; i < W; i++) {
+		int hh = H - 1;
+		for (int j = H - 1; j >= 0; j--) {
+			if (input[j * W + i] == 0)continue;
+			out[hh * W + i] = input[j * W + i];
+			hh--;
+		}
+	}
+	return out;
+}
+int dfs(vector<int> input, int n) {
+	int out = W * H;
+	if (n == 0) {
+		out = 0;
+		for (int i = 0; i < input.size(); i++) {
+			if (input[i] != 0)out++;
+		}
+		return out;
+	}
+	n--;
+	for (int i = 0; i < W; i++) {
+		vector<int> next = sim(input, i);
+		int tmpout = dfs(next, n);
+		if (out > tmpout)out = tmpout;
+	}
+	return out;
+
+}
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    int T;
-    cin >> T;
-    for (int tt = 0; tt < T; tt++) {
-        int N, W, H;
-        cin >> N >> W >> H;
-        int brick[15][12];
-        int brickcnt = 200000;
-        for (int i = H - 1; i >= 0; i--) {
-            for (int j = 0; j < W; j++) {
-                int tmp;
-                cin >> tmp;
-                brick[i][j] = tmp;
-            }
-        }
-        int repeat = 1;
-        for (int i = 0; i < N; i++) {
-            repeat *= W;
-        }
-        for (int i = 0; i < repeat; i++) {
-            int tmprepeat = i;
-            int tmpbrick[15][12];
-            for (int j = 0; j < 15; j++) {
-                for (int k = 0; k < 12; k++) {
-                    tmpbrick[j][k] = brick[j][k];
-                    if (j >= H || k >= W) tmpbrick[j][k] = 0;
-                }
-            }
-            for (int j = 0; j < N; j++) {
-                int drop = tmprepeat % W;
-                tmprepeat = (tmprepeat - drop) / W;
-                int height = -1;
-                for (int k = H - 1; k >= 0; k--) {
-                    if (tmpbrick[k][drop] != 0) {
-                        height = k;
-                        break;
-                    }
-                }
-                if (height == -1) continue;
-                queue<int> q, qq;
-                if (tmpbrick[height][drop] > 1) {
-                    q.push(height * W + drop);
-                    qq.push(tmpbrick[height][drop]);
-                }
-                tmpbrick[height][drop] = 0;
-                while (!q.empty()) {
-                    int next = q.front();
-                    q.pop();
-                    int num = qq.front();
-                    qq.pop();
-                    int tmph = next / W;
-                    int tmpw = next % W;
-                    for (int k = 1; k < num; k++) {
-                        if (tmph - k < 0) break;
-                        if (tmpbrick[tmph - k][tmpw] > 1) {
-                            q.push((tmph - k) * W + tmpw);
-                            qq.push(tmpbrick[tmph - k][tmpw]);
-                        }
-                        tmpbrick[tmph - k][tmpw] = 0;
-                    }
-                    for (int k = 1; k < num; k++) {
-                        if (tmph + k >= H) break;
-                        if (tmpbrick[tmph + k][tmpw] > 1) {
-                            q.push((tmph + k) * W + tmpw);
-                            qq.push(tmpbrick[tmph + k][tmpw]);
-                        }
-                        tmpbrick[tmph + k][tmpw] = 0;
-                    }
-                    for (int k = 1; k < num; k++) {
-                        if (tmpw - k < 0) break;
-                        if (tmpbrick[tmph][tmpw - k] > 1) {
-                            q.push(tmph * W + tmpw - k);
-                            qq.push(tmpbrick[tmph][tmpw - k]);
-                        }
-                        tmpbrick[tmph][tmpw - k] = 0;
-                    }
-                    for (int k = 1; k < num; k++) {
-                        if (tmpw + k < 0) break;
-                        if (tmpbrick[tmph][tmpw + k] > 1) {
-                            q.push(tmph * W + tmpw + k);
-                            qq.push(tmpbrick[tmph][tmpw + k]);
-                        }
-                        tmpbrick[tmph][tmpw + k] = 0;
-                    }
-                }
-                for (int k = 0; k < W; k++) {
-                    int tmpcol[15];
-                    int colh = 0;
-                    for (int l = 0; l < H; l++) {
-                        if (tmpbrick[l][k] == 0) continue;
-                        tmpcol[colh] = tmpbrick[l][k];
-                        colh++;
-                        tmpbrick[l][k] = 0;
-                    }
-                    for (int l = 0; l < colh; l++) {
-                        tmpbrick[l][k] = tmpcol[l];
-                    }
-                }
-            }
-            int tmpcnt = 0;
-            for (int j = 0; j < H; j++) {
-                for (int k = 0; k < W; k++) {
-                    if (tmpbrick[j][k] != 0) tmpcnt++;
-                }
-            }
-            if (brickcnt > tmpcnt) brickcnt = tmpcnt;
-        }
-        cout << "#" << tt + 1 << " " << brickcnt << endl;
-    }
-    return 0;
+	int tc;
+	cin >> tc;
+	for (int tt = 1; tt <= tc; tt++) {
+		int ans = 0;
+		cin >> N >> W >> H;
+		vector<int> bricks(W * H);
+		for (int i = 0; i < H; i++) {
+			for (int j = 0; j < W; j++) {
+				cin >> bricks[i * W + j];
+			}
+		}
+		ans = dfs(bricks, N);
+		cout << "#" << tt << " " << ans << endl;
+	}
+
+	return 0;
 }
