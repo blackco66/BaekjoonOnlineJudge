@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2750-unsolved.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="1005-unsolved.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -70,6 +67,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="kakaointern_pb1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode_contest164.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
